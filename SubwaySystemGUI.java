@@ -97,3 +97,16 @@ public class SubwaySystemGUI {
         }
     }
 
+  private void calculateFare() {
+        String startStation = JOptionPane.showInputDialog("输入起点站:");
+        String endStation = JOptionPane.showInputDialog("输入终点站:");
+
+        try {
+            List<Station> path = subwaySystem.getShortestPath(startStation, endStation);
+            double fare = subwaySystem.calculateFare(path);
+            JOptionPane.showMessageDialog(null, "Fare: " + fare);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+
