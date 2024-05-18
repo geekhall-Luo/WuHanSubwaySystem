@@ -76,4 +76,24 @@ public class SubwaySystemGUI {
         String startStation = JOptionPane.showInputDialog("输入起点站:");
         String endStation = JOptionPane.showInputDialog("输入终点站:");
 
+  try {
+            List<List<Station>> allPaths = subwaySystem.getAllPaths(startStation, endStation);
+            JOptionPane.showMessageDialog(null, "All Paths: " + allPaths);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+
+    private void showShortestPath() {
+        String startStation = JOptionPane.showInputDialog("输入起点站:");
+        String endStation = JOptionPane.showInputDialog("输入终点站:");
+
+        try {
+            List<Station> shortestPath = subwaySystem.getShortestPath(startStation, endStation);
+            JOptionPane.showMessageDialog(null, "Shortest Path: " + shortestPath);
+            subwaySystem.printPath(shortestPath);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
 
