@@ -110,3 +110,25 @@ public class SubwaySystemGUI {
         }
     }
 
+  private void calculateDiscountedFare() {
+        String startStation = JOptionPane.showInputDialog("输入起点站:");
+        String endStation = JOptionPane.showInputDialog("输入终点站:");
+        String ticketType = JOptionPane.showInputDialog("输入票种 (普通, 武汉通, 日票):");
+
+        try {
+            List<Station> path = subwaySystem.getShortestPath(startStation, endStation);
+            double discountedFare = subwaySystem.calculateFareWithDiscount(path, ticketType);
+            JOptionPane.showMessageDialog(null, "Discounted Fare (" + ticketType + "): " + discountedFare);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            new SubwaySystemGUI("C:\\Users\\LAB\\Desktop\\大作业\\subway.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
