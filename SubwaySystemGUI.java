@@ -126,7 +126,7 @@ public class SubwaySystemGUI {
 
     public static void main(String[] args) {
         try {
-            new SubwaySystemGUI("C:\\Users\\LAB\\Desktop\\大作业\\subway.txt");
+            new SubwaySystemGUI("C:\\Users\\33600\\Desktop\\实验一\\WuHanSubway\\subway.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
